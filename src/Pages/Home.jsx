@@ -6,7 +6,7 @@ import Island from '../models/Island'
 import SkyModel from '../models/SkyModel' 
 import Bird from '../models/BirdModel'
 import Plane from '../models/Plane'
-import Popupbar from '../Components/Navbar/popupbar'
+import Popupbar from '../Components/Navbar/Popupbar'
 
 
 const Home = () => {
