@@ -53,7 +53,7 @@ const Contact = () => {
         form_email: form.email,
         message: form.message
       },
-      import.meta.env.VITE_PUBLIC_KEY
+      import.meta.env.VITE_PK
     )
     .then(() => {
       setLoading(false);
