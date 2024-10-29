@@ -7,24 +7,26 @@ import SkyModel from '../models/SkyModel'
 import Bird from '../models/BirdModel'
 import Plane from '../models/Plane'
 import Popupbar from '../Components/Navbar/Popupbar'
+import useAdjustIslandForScreenSize from '../Components/Size/IslandSize'
 
 const Home = () => {
 
   const [currentStage, setCurrentStage] = useState(4);
   const [isRotating, setIsRotating] = useState(false);
+  const { ScreenPosition, ScreenScale, rotation } = useAdjustIslandForScreenSize();
 
-  const adjustIslandForScreenSize = () => {
-    let ScreenScale = null;
-    let ScreenPosition = [0, -9.5, -43];
-    let rotation = [0.1, 4.7, 0];
+  // const adjustIslandForScreenSize = () => {
+  //   let ScreenScale = null;
+  //   let ScreenPosition = [0, -9.5, -43];
+  //   let rotation = [0.1, 4.7, 0];
 
-    if(window.innerWidth < 768)
-      ScreenScale = [0.9, 0.9, 0.9];
-    else
-      ScreenScale = [1, 1, 1];
+  //   if(window.innerWidth < 768)
+  //     ScreenScale = [0.2, 0.2, 0.2];
+  //   else
+  //     ScreenScale = [1, 1, 1];
 
-    return [ScreenPosition, ScreenScale, rotation];
-  }
+  //   return [ScreenPosition, ScreenScale, rotation];
+  // }
 
   const adjustPlaneForScreenSize = () => {
     let ScreenScale = [3, 3, 3];
@@ -40,13 +42,17 @@ const Home = () => {
   }
 
   const [isPlanePosition, isPlaneScale] = adjustPlaneForScreenSize();
-  const [islandPosition, islandScale, islandRotation] = adjustIslandForScreenSize();
+  // const [islandPosition, islandScale, islandRotation] = adjustIslandForScreenSize();
 
   return (
     <div className='w-full h-screen relative'>
       <div className='w-full h-screen translate-y-[-2px]'>
       
-        <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
+        <div 
+          style={{
+            transform: window.innerWidth < 700 ? "scale(2)" : "scale(1)"
+          }}
+          className='absolute top-28 left-0 ${} right-0 z-10 flex items-center justify-center'>
           {
             currentStage && <Popupbar currentStage={currentStage} />
           }
@@ -72,9 +78,9 @@ const Home = () => {
             <Island 
               currentStage={currentStage}
               setCurrentStage={setCurrentStage}
-              position={islandPosition} 
-              scale={islandScale} 
-              rotation={islandRotation}
+              position={ScreenPosition} 
+              scale={ScreenScale} 
+              rotation={rotation}
               isRotating={isRotating}
               setIsRotating={setIsRotating}
               className="translate-x-[50px]"

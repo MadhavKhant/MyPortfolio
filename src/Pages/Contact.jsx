@@ -10,6 +10,7 @@ import { NavLink } from "react-router-dom";
 
 const Contact = () => {
 
+  
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -28,13 +29,13 @@ const Contact = () => {
   const handleChange = (e) => {
     setForm({...form, [e.target.name]: e.target.value});
   }
-
+  
   const handleFocus = () => {
 
     Setwolfposition([-0.6, -7.5, -7])
     setCurrentAnimation('02_walk_Armature_0');
   }
-
+  
   const handleBlur = () => {
     Setwolfposition([-0.6, -5, -7])
     setCurrentAnimation('04_Idle_Armature_0');
@@ -44,7 +45,7 @@ const Contact = () => {
     e.preventDefault();
     setCurrentAnimation('01_Run_Armature_0');
     setLoading(true);
-
+    
     emailjs.send(
       import.meta.env.VITE_SERVICE_ID,
       import.meta.env.VITE_TAMPLATE_ID,
@@ -77,10 +78,21 @@ const Contact = () => {
       console.log("Error during send mail in contact: ", error);
     })
   }
-
-
+  
+  
+  let ImageUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi-F5wcuq3s7jsZ_MhwgdMIDG1ICDzN1e3CQ&s'
+  
   return (
-    <div>
+    <div
+      style={{
+        backgroundImage: `url(${ImageUrl})`,
+        backgroundSize: 'cover',       // Ensures the image covers the entire div
+        backgroundPosition: 'center',   // Centers the image within the div
+        backgroundRepeat: 'no-repeat'   // Prevents tiling of the image
+      }}    
+
+      className="h-screen w-screen"
+    >
 
       <div className="ml-[50px] translate-y-[30px]">
         <NavLink to="/" >
