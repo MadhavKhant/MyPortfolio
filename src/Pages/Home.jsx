@@ -8,7 +8,6 @@ import Bird from '../models/BirdModel'
 import Plane from '../models/Plane'
 import Popupbar from '../Components/Navbar/Popupbar'
 
-
 const Home = () => {
 
   const [currentStage, setCurrentStage] = useState(4);
