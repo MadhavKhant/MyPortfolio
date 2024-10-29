@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom"
 
 
+// eslint-disable-next-line react/prop-types
 const Popupbar = ({currentStage}) => {
   
     if(currentStage === 0)
