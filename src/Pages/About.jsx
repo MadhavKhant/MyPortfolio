@@ -340,7 +340,7 @@ const About = () => {
               <SiGooglegemini style={{ transform: 'scale(1.7)' }} /> // Sets icon size explicitly
             }
           >
-            <Link to="https://mygames-three.vercel.app/" target="_blank"
+            <Link to="https://games-three-orpin.vercel.app/" target="_blank"
               style={{background: 'linear-gradient(135deg, #1e1b4b, #115e59, #525252, #a16207,  #0ea5e9)'}}
               className="bg-blue-400 px-7 rounded-3xl py-3 w-fit shadow-4xl flex flex-col gap-4 justify-center items-center">
               <div className="flex gap-2 flex-col">
