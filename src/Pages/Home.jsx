@@ -9,6 +9,7 @@ import Plane from '../models/Plane'
 import Popupbar from '../Components/Navbar/Popupbar'
 import useAdjustIslandForScreenSize from '../Components/Size/IslandSize'
 
+
 const Home = () => {
 
   const [currentStage, setCurrentStage] = useState(4);
@@ -69,6 +70,7 @@ const Home = () => {
 
             
             <Bird/>
+
             <SkyModel 
               isRotating={isRotating}
             /> 

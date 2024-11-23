@@ -21,9 +21,9 @@ const BirdModel = () => {
       
       birdref.current.position.y = Math.sin(clock.elapsedTime)*0.6;
       
-      if(birdref.current.position.x > camera.position.x + 15)
+      if(birdref.current.position.x > camera.position.x + 5)
         birdref.current.rotation.y = 2;
-      else if(birdref.current.position.x < camera.position.x - 10)
+      else if(birdref.current.position.x < camera.position.x - 5)
         birdref.current.rotation.y = 0;
 
       if(birdref.current.rotation.y === 0)
@@ -36,8 +36,6 @@ const BirdModel = () => {
         birdref.current.position.x -= 0.01;
         birdref.current.position.z += 0.01;
       }
-
-
     })
 
   return (

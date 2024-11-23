@@ -2,10 +2,12 @@ import MyImage from "../Assets/images/Self.jpg"
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { SiHyperskill } from "react-icons/si";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaPen } from "react-icons/fa";
 import Project01 from '../Assets/images/Project01.png'
 import { GiFilmProjector } from "react-icons/gi";
+import { GiArtificialIntelligence } from "react-icons/gi";
+import { SiGooglegemini } from "react-icons/si";
 
 const About = () => {
 
@@ -22,7 +24,10 @@ const About = () => {
    }
 
    let ImageUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpj75WwmN1Q6TcrlhE-aiHTTEsGREMpiSJwQ&s'
-   
+   let frontbgImageGenerator = "https://em360tech.com/sites/default/files/styles/cover_image/public/2024-06/best-ai-image-generators.jpeg.webp?itok=otSqM0j-"
+   let frontbgGemini = "https://storage.googleapis.com/ai-prod-wagtail/images/Gemini_in_our_products_tdRAZ7A.width-1000.format-webp.webp"
+   let Gamebg = "https://c4.wallpaperflare.com/wallpaper/66/859/796/super-mario-mario-bros-super-mario-bros-mario-party-wallpaper-preview.jpg"
+
    return (
     <div
         style={{
@@ -62,7 +67,7 @@ const About = () => {
       <div className="flex gap-10 items-center translate-x-[250px] ">
         <div className="relative flex  scale-[60%] hover:scale-[50%] transition-all duration-300">
           <div className="w-[300px] h-[300px] shadow-4xl  z-20 insert-0 -skew-x-[2deg] skew-y-[12deg] border-2 border-black rounded-full  overflow-hidden">
-            <img src={MyImage} alt="SelfImage" className="object-cover w-[100%] h-[110%]  rotate-[-10deg] translate-x-2 translate-y-2"/> 
+            <img src={MyImage} alt="SelfImage" className="object-cover w-[100%] h-[110%]  rotate-[-7deg] translate-x-1 translate-y-0"/> 
           </div>
           <div className="w-[300px] shadow-4xl  h-[300px] bg-gray-700 absolute rounded-full skew-y-[-20deg] scale-[90%] translate-x-[70px] translate-y-[10px]">
           </div>
@@ -87,12 +92,13 @@ const About = () => {
       <div className="translate-x-[20px]">
         <VerticalTimeline>
           
-
+          {/* Education */}
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
             contentStyle={{
-              background: 'linear-gradient(135deg, #22c1c3, #70740b)', // Add gradient here
-              color: '#fff'
+              background: 'linear-gradient(135deg, #22c1c3, #0000)', // Add gradient here
+              color: '#fff',
+              borderRadius: '50px',
             }}
             contentArrowStyle={{
               borderRight: '7px solid #790946',
@@ -110,11 +116,14 @@ const About = () => {
             </div>
           </VerticalTimelineElement>
 
+          {/* SkillSet */}
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
+            
             contentStyle={{
               // background: 'linear-gradient(135deg, #22c1c3, #70740b)', // Add gradient here
-              color: '#fff'
+              color: '#fff',
+              borderRadius: '50px',
             }}
             contentArrowStyle={{
               borderRight: '7px solid #790946',
@@ -125,7 +134,7 @@ const About = () => {
           >
             <div className=" px-7 rounded-3xl py-3 flex flex-col gap-5">
 
-              <div className="w-full py-1 shadow-6xl
+              <div className="w-full py-1 shadow-4xl
                 hover:scale-[120%] transition-all duration-300
                text-gray-300 bg-blue-900 rounded-3xl text-center font-bold text-[25px]">
                 SkillSet
@@ -135,7 +144,7 @@ const About = () => {
                 {
                   languages.map((ele, index) => {
                     return (
-                      <div key={index} className="shadow-5xl text-yellow-300 
+                      <div key={index} className="shadow-2xl text-yellow-300 
                         hover:scale-[120%] transition-all duration-300
                         font-bold text-lg px-4 py-1 rounded-3xl bg-black w-fit">
                         {ele}
@@ -149,7 +158,7 @@ const About = () => {
                 {
                   Development.map((ele, index) => {
                     return (
-                      <div key={index} className="shadow-4xl text-red-600 
+                      <div key={index} className="shadow-2xl text-black
                         hover:scale-[120%] transition-all duration-300
                         px-4 py-1 font-bold text-lg rounded-3xl bg-sky-300 w-fit">
                         {ele}
@@ -163,7 +172,7 @@ const About = () => {
                 {
                   OtherSkills.map((ele, index) => {
                     return (
-                      <div key={index} className="shadow-6xl text-gray-100 
+                      <div key={index} className="shadow-2xl text-gray-100 
                         hover:scale-[120%] transition-all duration-300
                         px-4 py-1 font-bold text-lg rounded-3xl bg-green-700 w-fit">
                         {ele}
@@ -175,22 +184,23 @@ const About = () => {
             </div>
           </VerticalTimelineElement>
 
+            {/* Course Project */}
           <VerticalTimelineElement
-            className="vertical-timeline-element--work"
+            className="vertical-timeline-element--work "
             contentStyle={{
-              background: 'linear-gradient(135deg, #22c1c3, #70740b)', // Add gradient here
-              color: '#fff'
+              background: 'linear-gradient(135deg, #22d3ee, #10b981, #0284c7, #0284c7, #14b8a6,   #a1a1aa)', // Add gradient here
+              color: '#fff',
+              borderRadius: '50px',
             }}
             contentArrowStyle={{
               borderRight: '7px solid #790946',
               color: '#30b137'
             }}
             iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-            icon={<GiFilmProjector />}
+            icon={<GiFilmProjector style={{ transform: 'scale(1.5)' }}/>}
           >
 
-            <div>
-
+            <div className="">
               <div className="hover:scale-[105%] hover:cursor-pointer transition-all 
                   duration-300 rounded-3xl overflow-hidden">
                 <a 
@@ -223,7 +233,7 @@ const About = () => {
                                 return (
                                   <span key={index} 
                                     className="shadow-4xl hover:scale-[110%] hover:cursor-pointer transition-all duration-300 
-                                    text-red-600 bg-sky-500 px-3 py-2 rounded-2xl font-bold"
+                                    text-amber-950 bg-sky-500 px-3 py-2 rounded-2xl font-bold"
                                   >
                                     {ele}
                                   </span>
@@ -240,6 +250,118 @@ const About = () => {
 
               </div>
             </div>
+          </VerticalTimelineElement>
+
+            {/* Image Generation */}
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            contentStyle={{
+              background: 'linear-gradient(135deg, #22c1c3, #0000)', // Add gradient here
+              color: '#fff',
+              borderRadius: '50px',
+            }}
+            contentArrowStyle={{
+              borderRight: '7px solid #790946',
+              color: '#30b137'
+            }}
+            iconStyle={{
+              background: 'rgb(33, 150, 243)', 
+              color: '#fff',
+            }}
+            icon={
+              <GiArtificialIntelligence style={{ transform: 'scale(1.7)' }} /> // Sets icon size explicitly
+            }
+          >
+            <Link to="https://my-gemini-alpha.vercel.app/" target="_blank"
+              style={{background: 'linear-gradient(135deg, #0e7490, #115e59, #7c2d12, #0e7490, #115e59)'}}
+              className="bg-blue-400 px-7 rounded-3xl py-3 w-fit shadow-4xl flex flex-col gap-4 justify-center items-center">
+              <div className="flex gap-2 flex-col">
+                <div className="h-[250px] w-[410px] hover:scale-110 transition-all duration-500">
+                  <img src={frontbgImageGenerator} className="w-full h-full rounded-3xl"/>
+                </div>
+                <div className="text-center font-bold text-[30px] text-black drop-shadow-lg [text-shadow:_0_4px_5px_rgb(99_102_241_/_1)] ">
+                  Text to Image Generator
+                </div>
+              </div>
+            </Link>
+          </VerticalTimelineElement>
+
+            {/* Text Generation */}
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            contentStyle={{
+              background: 'linear-gradient(135deg, #22c1c3, #0000)', // Add gradient here
+              color: '#fff',
+              borderRadius: '50px',
+            }}
+            contentArrowStyle={{
+              borderRight: '7px solid #790946',
+              color: '#30b137'
+            }}
+            iconStyle={{
+              background: 'rgb(33, 150, 243)', 
+              color: '#fff',
+            }}
+            icon={
+              <SiGooglegemini style={{ transform: 'scale(1.7)' }} /> // Sets icon size explicitly
+            }
+          >
+            <Link to="https://my-gemini-alpha.vercel.app/" target="_blank"
+              style={{background: 'linear-gradient(135deg, #737373, #334155, #737373)'}}
+              className="bg-blue-400 px-7 rounded-3xl py-3 w-fit shadow-4xl flex flex-col gap-4 justify-center items-center">
+              <div className="flex gap-2 flex-col">
+                <div className="h-[250px] w-[410px] hover:scale-110 transition-all duration-500">
+                  <img src={frontbgGemini} className="w-full h-full rounded-3xl"/>
+                </div>
+                <div className="text-center font-bold text-[30px] text-black drop-shadow-lg [text-shadow:_0_4px_5px_rgb(99_102_241_/_1.8)] ">
+                  Enter your prompt and generate your text
+                </div>
+              </div>
+            </Link>
+          </VerticalTimelineElement>
+
+            {/* Games */}
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            contentStyle={{
+              background: 'linear-gradient(135deg, #22c1c3, #0000)', // Add gradient here
+              color: '#fff',
+              borderRadius: '50px',
+            }}
+            contentArrowStyle={{
+              borderRight: '7px solid #790946',
+              color: '#30b137'
+            }}
+            iconStyle={{
+              background: 'rgb(33, 150, 243)', 
+              color: '#fff',
+            }}
+            icon={
+              <SiGooglegemini style={{ transform: 'scale(1.7)' }} /> // Sets icon size explicitly
+            }
+          >
+            <Link to="https://mygames-three.vercel.app/" target="_blank"
+              style={{background: 'linear-gradient(135deg, #1e1b4b, #115e59, #525252, #a16207,  #0ea5e9)'}}
+              className="bg-blue-400 px-7 rounded-3xl py-3 w-fit shadow-4xl flex flex-col gap-4 justify-center items-center">
+              <div className="flex gap-2 flex-col">
+                <div className="h-[250px] w-[410px] hover:scale-110 transition-all duration-500">
+                  <img src={Gamebg} className="w-full h-full rounded-3xl"/>
+                </div>
+                <div
+                  className="text-transparent bg-clip-text text-center font-bold text-[30px] 
+                            bg-gradient-to-r from-indigo-100 via-purple-100 to-lime-200 
+                            relative"
+                >
+                  <span
+                    className="absolute inset-0 text-gray-800 blur-[1.8px] translate-y-[2px] translate-x-[2px]"
+                  >
+                    Play Games and Enjoy
+                  </span>
+                  Play Games and Enjoy
+                </div>
+
+              </div>
+            </Link>
           </VerticalTimelineElement>
 
         </VerticalTimeline>
