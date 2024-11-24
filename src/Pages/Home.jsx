@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import { Canvas } from '@react-three/fiber'
-import { Suspense, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import Loader from '../Components/Loader'
 import Island from '../models/Island'
 import SkyModel from '../models/SkyModel' 
@@ -8,6 +8,7 @@ import Bird from '../models/BirdModel'
 import Plane from '../models/Plane'
 import Popupbar from '../Components/Navbar/Popupbar'
 import useAdjustIslandForScreenSize from '../Components/Size/IslandSize'
+import Jet from '../models/Jet'
 
 
 const Home = () => {
@@ -45,6 +46,17 @@ const Home = () => {
   const [isPlanePosition, isPlaneScale] = adjustPlaneForScreenSize();
   // const [islandPosition, islandScale, islandRotation] = adjustIslandForScreenSize();
 
+  const [Jetanimation, Setjetanimation] = useState(false);
+
+  useEffect(() => {
+    Setjetanimation(true);
+    setTimeout(() => {
+      Setjetanimation(false);
+    }, 20000);
+  }, []);
+
+
+
   return (
     <div className='w-full h-screen relative'>
       <div className='w-full h-screen translate-y-[-2px]'>
@@ -75,7 +87,7 @@ const Home = () => {
               isRotating={isRotating}
             /> 
 
-            
+            {Jetanimation && <Jet/>}
 
             <Island 
               currentStage={currentStage}
