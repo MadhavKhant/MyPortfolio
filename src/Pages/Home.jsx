@@ -52,7 +52,7 @@ const Home = () => {
     Setjetanimation(true);
     setTimeout(() => {
       Setjetanimation(false);
-    }, 20000);
+    }, 17000);
   }, []);
 
 

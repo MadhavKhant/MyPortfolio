@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import { useGLTF } from '@react-three/drei';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Plane, useTexture } from '@react-three/drei';
 import jetmodel from '../Assets/3d/jet.glb';
@@ -18,18 +18,10 @@ const Jet = () => {
   const jetscene = jet.scene;
 
   const [particles, setParticles] = useState([]); // To manage smoke particles
-
   const smokeTexture = useTexture(smoke); // Load smoke texture
 
   // Define path (a quadratic Bézier curve in 3D)
   const pathPoints = [
-    // new THREE.Vector3(px - 20, py - 20, pz),
-    // new THREE.Vector3(px + 350, py + 200, pz - 350),
-    // new THREE.Vector3(px - 500, py, pz - 50),
-    // new THREE.Vector3(px + 50, py + 40, pz - 60),
-    // new THREE.Vector3(px + 500, py + 40, pz - 60),
-    // new THREE.Vector3(px + 1000, py - 100, pz - 100),
-
     new THREE.Vector3(px - 20, py - 20, pz),
     new THREE.Vector3(px + 300, py + 200, pz - 300),
     new THREE.Vector3(px - 110, py + 20, pz - 50),
@@ -47,10 +39,6 @@ const Jet = () => {
     { progress: 1, rotation: new THREE.Euler(3, 5, 7) }, // End of the path
   ];
 
-  
-
-  
-
   // Animation progress (0 to 1) for moving along the path
   const [progress, setProgress] = useState(0);
 
@@ -58,7 +46,6 @@ const Jet = () => {
     if (jetRef.current) {
       const newProgress = (progress + 0.001) % 1; // Loop the animation smoothly
       setProgress(newProgress); // Update progress
-      
 
       // Get position along the path
       const position = path.getPointAt(newProgress); // Interpolate along the path
@@ -82,16 +69,6 @@ const Jet = () => {
           break;
         }
       }
-  
-      // Optional: Rotate the jet to face the direction of travel
-//       const tangent = path.getTangentAt(newProgress); // Get direction at the point
-// const lookAtRotation = new THREE.Euler().setFromQuaternion(
-//   new THREE.Quaternion().setFromUnitVectors(
-//     new THREE.Vector3(0, 0, 1), // Default forward vector for the jet
-//     tangent // Tangent direction at the point
-//   )
-// );
-// jetRef.current.rotation.y = lookAtRotation.y;
 
       // Apply a second rotation based on the direction of travel (tangent)
       jetRef.current.rotation.set(
@@ -100,15 +77,19 @@ const Jet = () => {
         jetRef.current.rotation.z  // Rotation based on direction
       );
   
-  
       // Smoke particle effect
       setParticles((prev) => [
         ...prev.slice(-100), // Limit the number of particles
         {
           position: [
-            jetRef.current.position.x, // Match jet's x position
-            jetRef.current.position.y + 2, // Slightly above the jet's y position
-            jetRef.current.position.z + 4.2, // Slightly behind the jet along z-axis
+            jetRef.current.position.x + 4, // Match jet's x position
+            jetRef.current.position.y + 6, // Slightly above the jet's y position
+            jetRef.current.position.z - 6, // Slightly behind the jet along z-axis
+          ],
+          rotation: [
+            0.04, // Random rotation on X
+            0.001, // Random rotation on Y
+            1, // Random rotation on Z
           ],
           life: 1.0, // Initial particle life
         },
@@ -142,6 +123,7 @@ const Jet = () => {
           position={particle.position} // Use the calculated position
           scale={5 * particle.life} // Scale decreases as life decreases
           ref={(el) => (smokeRef.current[index] = el)}
+          rotation={new THREE.Euler(particle.rotation[0], particle.rotation[1], particle.rotation[2])} // Apply random rotation
         >
           <meshStandardMaterial
             attach="material"
