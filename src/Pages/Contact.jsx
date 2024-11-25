@@ -10,37 +10,32 @@ import { NavLink } from "react-router-dom";
 
 const Contact = () => {
 
-  
   const [form, setForm] = useState({
     name: '',
+    companyname: '',
     email: '',
-    message: ''
+    jobrole: '',
+    ctc: '',
+    basesalary: '',
+    message: '',
   });
 
   const [wolfscale, Setwolfscale] = useState([12, 15, 18]);
   const [wolfposition, Setwolfposition] = useState([-0.6, -5, -7]);
   const [wolfrotation, Setwolfrotation] = useState([0, -0.05, 0.1]);
-
-
   const [loading, setLoading] = useState(false);
   const formref = useRef(null);
   const [currentAnimation, setCurrentAnimation] = useState('04_Idle_Armature_0')
 
-  const handleChange = (e) => {
-    setForm({...form, [e.target.name]: e.target.value});
-  }
-  
+  const handleChange = (e) => {setForm({...form, [e.target.name]: e.target.value});}
   const handleFocus = () => {
-
     Setwolfposition([-0.6, -7.5, -7])
     setCurrentAnimation('02_walk_Armature_0');
   }
-  
   const handleBlur = () => {
     Setwolfposition([-0.6, -5, -7])
     setCurrentAnimation('04_Idle_Armature_0');
   }
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setCurrentAnimation('01_Run_Armature_0');
@@ -50,26 +45,31 @@ const Contact = () => {
       import.meta.env.VITE_SERVICE_ID,
       import.meta.env.VITE_TAMPLATE_ID,
       {
-        form_name: form.name,
-        form_email: form.email,
-        message: form.message
+        name: form.name,
+        companyname: form.companyname,
+        email: form.email,
+        jobrole: form.jobrole,
+        ctc: form.ctc,
+        basesalary: form.basesalary,
+        message: form.message,
       },
       import.meta.env.VITE_PK
     )
     .then(() => {
       setLoading(false);
-      
-
       setTimeout(() => {
         Setwolfposition([-0.6, -5, -7])
         setCurrentAnimation('04_Idle_Armature_0');   
         setForm({
           name: '',
+          companyname: '',
           email: '',
-          message: ''
+          jobrole: '',
+          ctc: '',
+          basesalary: '',
+          message: '',
         });       
       }, 3000)
-
     })
     .catch((error) => {
       setLoading(false);
@@ -79,9 +79,7 @@ const Contact = () => {
     })
   }
   
-  
   let ImageUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi-F5wcuq3s7jsZ_MhwgdMIDG1ICDzN1e3CQ&s'
-  
   return (
     <div
       style={{
@@ -109,32 +107,69 @@ const Contact = () => {
 
       <div className="flex flex-row gap-5 mt-[-50px]">
 
-        
-
-        <div className="border-2 border-black rounded-xl w-[30%] shadow-xl
-          bg-gradient-to-r from-indigo-300 from-10% via-sky-400 via-30% to-emerald-400 to-90%
-          ml-[20%] mt-[8%] py-8 px-8 flex flex-col gap-8"
+        <div className="border-2 border-black rounded-3xl w-[37%] shadow-3xl
+          bg-gradient-to-r from-emerald-600 from-15% via-green-700 via-50% to-emerald-600 to-90%
+          ml-[20%] mt-[1%] py-8 px-8 flex flex-col gap-8 backdrop-blur-xl"
         >
           <h1 className="font-bold text-3xl text-blue-800">Get in Touch</h1>
 
-          <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
-            <label className="flex flex-col gap-1">
-              Name
-              <input
-                type="text"
-                placeholder="Enter your name"
-                name="name"
-                required
-                value={form.name}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                className="border-[1.2px] border-black px-2 rounded-xl py-1 shadow-xl"
-              />
-            </label>
+          <form className="flex flex-col gap-3 w-full" onSubmit={handleSubmit}>
+
+            <div className="flex gap-5">
+              <label className="flex flex-col gap-1 w-full">
+                <span
+                  className="text-xl font-bold relative bg-clip-text text-transparent"
+                  style={{
+                    textShadow: "2px 2px 0 #020617, 4px 2px 0 #7dd3fc, 5px 3px 0 #db2777", // Different colors for shadows
+                  }}
+                >
+                  Your Name
+                </span>
+                <input
+                  type="text"
+                  placeholder="Enter your name"
+                  name="name"
+                  required
+                  value={form.name}
+                  onChange={handleChange}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                  className="border-[1.2px] border-black px-2 rounded-xl py-1 shadow-xl"
+                />
+              </label>
+
+              <label className="flex flex-col gap-1 w-full">
+                <span
+                  className="text-xl font-bold relative bg-clip-text text-transparent"
+                  style={{
+                    textShadow: "2px 2px 0 #020617, 4px 2px 0 #7dd3fc, 5px 3px 0 #db2777", // Different colors for shadows
+                  }}
+                >
+                  Company Name
+                </span>
+                <input
+                  type="text"
+                  placeholder="Enter your Company name"
+                  name="companyname"
+                  required
+                  value={form.companyname}
+                  onChange={handleChange}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                  className="border-[1.2px] border-black px-2 rounded-xl py-1 shadow-xl"
+                />
+              </label>
+            </div>
 
             <label className="flex flex-col gap-1">
-              Name
+              <span
+                className="text-xl font-bold relative bg-clip-text text-transparent"
+                style={{
+                  textShadow: "2px 2px 0 #020617, 4px 2px 0 #7dd3fc, 5px 3px 0 #db2777", // Different colors for shadows
+                }}
+              >
+                Email
+              </span>
               <input
                 type="text"
                 placeholder="abc@gmail.com"
@@ -149,7 +184,84 @@ const Contact = () => {
             </label>
 
             <label className="flex flex-col gap-1">
-              message
+              <span
+                  className="text-xl font-bold relative bg-clip-text text-transparent"
+                  style={{
+                    textShadow: "2px 2px 0 #020617, 4px 2px 0 #7dd3fc, 5px 3px 0 #db2777", // Different colors for shadows
+                  }}
+                >
+                  Jobrole
+                </span>
+              <input
+                type="text"
+                placeholder="Enter jobrole"
+                name="jobrole"
+                required
+                value={form.jobrole}
+                onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                className="border-[1.2px] border-black px-2 rounded-xl py-1 shadow-xl"
+              />
+            </label>
+
+            <div className="flex gap-5">
+              <label className="flex flex-col gap-1 w-full">
+              <span
+                  className="text-xl font-bold relative bg-clip-text text-transparent"
+                  style={{
+                    textShadow: "2px 2px 0 #020617, 4px 2px 0 #7dd3fc, 5px 3px 0 #db2777", // Different colors for shadows
+                  }}
+                >
+                  CTC
+                </span>
+
+                <input
+                  type="text"
+                  placeholder="Enter CTC"
+                  name="ctc"
+                  required
+                  value={form.ctc}
+                  onChange={handleChange}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                  className="border-[1.2px] border-black px-2 rounded-xl py-1 shadow-xl"
+                />
+              </label>
+
+              <label className="flex flex-col gap-1 w-full">
+                <span
+                  className="text-xl font-bold relative bg-clip-text text-transparent"
+                  style={{
+                    textShadow: "2px 2px 0 #020617, 4px 2px 0 #7dd3fc, 5px 3px 0 #db2777", // Different colors for shadows
+                  }}
+                >
+                  Base Salary
+                </span>
+                
+                <input
+                  type="text"
+                  placeholder="Enter baseSalary per year"
+                  name="basesalary"
+                  required
+                  value={form.basesalary}
+                  onChange={handleChange}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                  className="border-[1.2px] border-black px-2 rounded-xl py-1 shadow-xl"
+                />
+              </label>
+            </div>
+
+            <label className="flex flex-col gap-1">
+              <span
+                className="text-xl font-bold relative bg-clip-text text-transparent"
+                style={{
+                  textShadow: "2px 2px 0 #020617, 4px 2px 0 #7dd3fc, 5px 3px 0 #db2777", // Different colors for shadows
+                }}
+              >
+                Message
+              </span>
               <textarea
                 type="text"
                 placeholder="Enter your Message"
@@ -182,6 +294,23 @@ const Contact = () => {
 
         <div className=" h-[500px] w-[500px]">
           <Canvas
+
+            gl={{
+                antialias: true, // Enable antialiasing for smoother rendering
+                failIfMajorPerformanceCaveat: true, // Prevent WebGL initialization on unsupported devices
+              }}
+              onCreated={(state) => {
+                try {
+                  const gl = state.gl.getContext(); // Check WebGL context creation
+                  if (!gl) {
+                    console.error("WebGL context could not be created.");
+                    throw new Error("WebGL not supported on this device.");
+                  }
+                } catch (error) {
+                  console.error("Error creating WebGL context:", error);
+                }
+              }}
+
             camera={{
               position: [5, 0, 5],
               fov: 75,

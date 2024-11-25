@@ -50,17 +50,6 @@ const Navbar = () => {
             </a>
         </NavLink>
 
-
-
-
-
-        
-
-
-
-
-
-
       </nav>
     </header>
   )

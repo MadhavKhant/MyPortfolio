@@ -52,9 +52,8 @@ const Home = () => {
     Setjetanimation(true);
     setTimeout(() => {
       Setjetanimation(false);
-    }, 17000);
+    }, 35000);
   }, []);
-
 
 
   return (
