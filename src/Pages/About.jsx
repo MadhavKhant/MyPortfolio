@@ -272,7 +272,7 @@ const About = () => {
               <GiArtificialIntelligence style={{ transform: 'scale(1.7)' }} /> // Sets icon size explicitly
             }
           >
-            <Link to="https://my-gemini-alpha.vercel.app/" target="_blank"
+            <Link to="https://my-gemini-kiwn4465j-madhav-khants-projects.vercel.app/" target="_blank"
               style={{background: 'linear-gradient(135deg, #0e7490, #115e59, #7c2d12, #0e7490, #115e59)'}}
               className="bg-blue-400 px-7 rounded-3xl py-3 w-fit shadow-4xl flex flex-col gap-4 justify-center items-center">
               <div className="flex gap-2 flex-col">
