@@ -16,19 +16,7 @@ const Home = () => {
   const [currentStage, setCurrentStage] = useState(4);
   const [isRotating, setIsRotating] = useState(false);
   const { ScreenPosition, ScreenScale, rotation } = useAdjustIslandForScreenSize();
-
-  // const adjustIslandForScreenSize = () => {
-  //   let ScreenScale = null;
-  //   let ScreenPosition = [0, -9.5, -43];
-  //   let rotation = [0.1, 4.7, 0];
-
-  //   if(window.innerWidth < 768)
-  //     ScreenScale = [0.2, 0.2, 0.2];
-  //   else
-  //     ScreenScale = [1, 1, 1];
-
-  //   return [ScreenPosition, ScreenScale, rotation];
-  // }
+  const [Jetanimation, Setjetanimation] = useState(false);
 
   const adjustPlaneForScreenSize = () => {
     let ScreenScale = [3, 3, 3];
@@ -42,13 +30,12 @@ const Home = () => {
     
     return [ScreenPosition, ScreenScale];
   }
-
   const [isPlanePosition, isPlaneScale] = adjustPlaneForScreenSize();
-  // const [islandPosition, islandScale, islandRotation] = adjustIslandForScreenSize();
 
-  const [Jetanimation, Setjetanimation] = useState(false);
-
+  
   useEffect(() => {
+
+    // jetInterval();
     Setjetanimation(true);
     setTimeout(() => {
       Setjetanimation(false);

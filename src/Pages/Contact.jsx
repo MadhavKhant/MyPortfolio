@@ -88,7 +88,6 @@ const Contact = () => {
         backgroundPosition: 'center',   // Centers the image within the div
         backgroundRepeat: 'no-repeat'   // Prevents tiling of the image
       }}    
-
       className="h-screen w-screen"
     >
 
