@@ -279,8 +279,8 @@ const Contact = () => {
             <button
               type="submit"
               className="px-2 py-1 bg-gray-500 text-white font-bold text-xl rounded-2xl hover:scale-[90%] 
-                transition-all duration-300 shadow-xl hover:bg-yellow-500 hover:text-blue-600 w-full h-fit
-                  text-center hover:cursor-pointer
+                transition-all duration-100 shadow-xl hover:bg-yellow-500 hover:text-blue-600 w-full h-fit
+                  text-center hover:cursor-pointer border-2 border-black
                 "
               onFocus={handleFocus}
               onBlur={handleBlur}
