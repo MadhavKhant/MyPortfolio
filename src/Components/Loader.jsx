@@ -1,14 +1,16 @@
-import {Html} from '@react-three/drei'
+import { Html, useProgress } from '@react-three/drei';
 
 const Loader = () => {
+  const { progress } = useProgress(); // 👈 track model loading %
+
   return (
-    <Html>
-      <div className="flex justify-center items-center">
-        <div className="w-20 h-20 border-3 border-opacity-60 border-blue-700 border-t-blue-900 rounded-full animate-spin">
-        </div>
+    <Html center>
+      <div className="flex flex-col items-center text-black text-[100px] font-bold">
+        <span className="text-xl mb-2">Loading...</span>
+        <span className="text-lg">{progress.toFixed(0)}%</span>
       </div>
     </Html>
-  )
-}
+  );
+};
 
-export default Loader
+export default Loader;

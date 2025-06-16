@@ -3,9 +3,10 @@ import { useAnimations, useGLTF } from '@react-three/drei'
 import Planescene from '../Assets/3d/plane.glb'
 import { useEffect, useRef } from 'react';
 
-const Plane = ({isRotating, ...props}) => {
+const Plane = (props) => {
 
   const ref = useRef();
+  const isRotating = props.isRotating;
   const {scene, animations} = useGLTF(Planescene);
   const {actions} = useAnimations(animations, ref);
   

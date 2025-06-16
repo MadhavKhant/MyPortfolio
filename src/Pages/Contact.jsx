@@ -345,6 +345,8 @@ const Contact = () => {
           </Canvas>
         </div>
 
+        
+
       </div>
     </div>
   )
