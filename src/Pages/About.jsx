@@ -436,7 +436,7 @@ const About = () => {
             }
           >
             <Link
-              to="https://my-gemini-17p29v6rm-madhav-khants-projects.vercel.app/"
+              to="https://new-gemini-and-image-generator.vercel.app/"
               target="_blank"
               style={{
                 background:
@@ -479,7 +479,7 @@ const About = () => {
             }
           >
             <Link
-              to="https://my-gemini-17p29v6rm-madhav-khants-projects.vercel.app/"
+              to="https://new-gemini-and-image-generator.vercel.app/"
               target="_blank"
               style={{
                 background:
