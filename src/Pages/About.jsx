@@ -149,6 +149,11 @@ const About = () => {
       }}
       className="w-screen overflow-hidden relative"
     >
+
+      {/************************************************************************************************************
+      ***********************************************************************************************************
+      *********************************************************************************************************** */}
+      {/* independent svg*/}
       <svg className="fixed top-0 left-0 w-screen h-full pointer-events-none z-[9999]">
         <path
           ref={pathRef}
@@ -173,6 +178,10 @@ const About = () => {
         </span>
       </div>
 
+      {/************************************************************************************************************
+      ***********************************************************************************************************
+      *********************************************************************************************************** */}
+      {/* buttons home and hire me */}
       <div className="translate-x-5 translate-y-2 flex gap-4">
         <NavLink to="/">
           <a href="#_" className="relative inline-block text-lg group">
@@ -203,7 +212,11 @@ const About = () => {
         </NavLink>
       </div>
 
-      <div className="flex gap-10 items-center translate-x-[250px] ">
+      {/************************************************************************************************************
+      ***********************************************************************************************************
+      *********************************************************************************************************** */}
+      {/* Photo and name and passionate */}
+      <div className="flex flex-col lg:flex-row gap-2 items-center px-4 md:px-10 lg:translate-x-[250px] translate-x-0 ">
         <div className="relative flex  scale-[60%] hover:scale-[50%] transition-all duration-300">
           <div className="w-[300px] h-[300px] shadow-4xl  z-20 insert-0 -skew-x-[2deg] skew-y-[12deg] border-2 border-black rounded-full  overflow-hidden">
             <img
@@ -236,7 +249,11 @@ const About = () => {
         </div>
       </div>
 
-      <div className="translate-x-[20px]">
+      {/************************************************************************************************************
+      ***********************************************************************************************************
+      *********************************************************************************************************** */}
+      {/* Timeline */}
+      <div className="translate-x-[20px] mr-[30px] w-full h-full">
         <VerticalTimeline>
           {/* Education */}
           <VerticalTimelineElement
@@ -253,8 +270,8 @@ const About = () => {
             iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
             icon={<FaPen />}
           >
-            <div className="bg-blue-400 px-7 rounded-3xl py-3 w-fit shadow-4xl flex flex-col gap-4 justify-center items-center">
-              <div className="flex justify-evenly gap-1">
+            <div className="bg-blue-400 px-7 rounded-3xl py-3 lg:w-fit md:w-[90%] shadow-4xl flex flex-col gap-4 justify-center items-center">
+              <div className="flex justify-evenly gap-2">
                 <div className="font-bold text-[25px] text-blue-900 shadow-4xl hover:scale-[90%] transition-all duration-300 rounded-3xl w-fit px-3 ">
                   M.Sc.
                 </div>
@@ -292,7 +309,7 @@ const About = () => {
                 SkillSet
               </div>
 
-              <div className="flex gap-3">
+              <div className="flex gap-3 flex-wrap">
                 {languages.map((ele, index) => {
                   return (
                     <div
@@ -382,19 +399,19 @@ const About = () => {
                   Tools and Technologies
                 </h3>
 
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 flex-wrap">
                   {Object.entries(project01ToolsAndTech).map(([key, value]) => {
                     return (
-                      <div className="flex gap-3 " key={key}>
+                      <div className="flex gap-5 items-center" key={key}>
                         <div
                           className="text-yellow-400 shadow-4xl
                             hover:scale-[110%] hover:cursor-pointer transition-all duration-300 
-                           bg-black px-3 text-center py-2 rounded-3xl w-fit"
+                           bg-black px-3 text-center items-center justify-center flex py-2 rounded-3xl lg:w-[19%] md:w-[20%]  h-fit "
                         >
                           {key}
                         </div>
 
-                        <div className="flex gap-2 justify-center">
+                        <div className="flex flex-wrap gap-3 justify-center">
                           {value.map((ele, index) => {
                             return (
                               <span
