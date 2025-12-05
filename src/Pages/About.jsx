@@ -17,7 +17,7 @@ import htmlImage from "../Assets/circular images/html5-banner.jpg";
 import CPlusPlusImage from "../Assets/circular images/CPlusPlusImage.webp";
 import DSAImage from "../Assets/circular images/DSA.jpg";
 import CImage from "../Assets/circular images/c-language.jpg";
-import JavaScriptImage from "../Assets/circular images/JavaScript.jpg";
+import JavaScriptImage from "../Assets/circular images/javaScript.jpg";
 import reactJsImage from "../Assets/circular images/reactJs.png";
 
 const About = () => {
