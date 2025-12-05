@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-
 import MyImage from "../Assets/images/Self.jpg";
 import Project01 from "../Assets/images/Project01.png";
 import {
@@ -12,8 +11,14 @@ import { SiHyperskill } from "react-icons/si";
 import { Link, NavLink } from "react-router-dom";
 import { FaPen } from "react-icons/fa";
 import { GiFilmProjector } from "react-icons/gi";
-import { GiArtificialIntelligence } from "react-icons/gi";
 import { SiGooglegemini } from "react-icons/si";
+import InfiniteMenu from "../Components/InfiniteMenu";
+import htmlImage from "../Assets/circular images/html5-banner.jpg";
+import CPlusPlusImage from "../Assets/circular images/CPlusPlusImage.webp";
+import DSAImage from "../Assets/circular images/DSA.jpg";
+import CImage from "../Assets/circular images/c-language.jpg";
+import JavaScriptImage from "../Assets/circular images/JavaScript.jpg";
+import reactJsImage from "../Assets/circular images/reactJs.png";
 
 const About = () => {
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -115,29 +120,29 @@ const About = () => {
 
   let ImageUrl =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpj75WwmN1Q6TcrlhE-aiHTTEsGREMpiSJwQ&s";
-  let frontbgImageGenerator =
-    "https://em360tech.com/sites/default/files/styles/cover_image/public/2024-06/best-ai-image-generators.jpeg.webp?itok=otSqM0j-";
-  let frontbgGemini =
-    "https://storage.googleapis.com/ai-prod-wagtail/images/Gemini_in_our_products_tdRAZ7A.width-1000.format-webp.webp";
   let Gamebg =
     "https://c4.wallpaperflare.com/wallpaper/66/859/796/super-mario-mario-bros-super-mario-bros-mario-party-wallpaper-preview.jpg";
 
-  // return (
-  //   <div className="w-screen h-screen bg-gray-900 relative overflow-hidden">
-
-  //     <svg className="absolute top-0 left-0 w-full h-full pointer-events-none z-[9999]">
-  //       <path
-  //         ref={pathRef}
-  //         id="string-path"
-  //         stroke="#facc15"
-  //         strokeWidth="4"
-  //         fill="none"
-  //         strokeLinecap="round"
-  //         filter="drop-shadow(5 5 8px #facc15)"
-  //       />
-  //     </svg>
-  //   </div>
-  // );
+  const items = [
+    {
+      image: htmlImage,
+    },
+    {
+      image: CPlusPlusImage,
+    },
+    {
+      image: DSAImage,
+    },
+    {
+      image: JavaScriptImage,
+    },
+    {
+      image: CImage,
+    },
+    {
+      image: reactJsImage,
+    },
+  ];
 
   return (
     <div
@@ -149,10 +154,9 @@ const About = () => {
       }}
       className="w-screen overflow-hidden relative"
     >
-
       {/************************************************************************************************************
-      ***********************************************************************************************************
-      *********************************************************************************************************** */}
+       ***********************************************************************************************************
+       *********************************************************************************************************** */}
       {/* independent svg*/}
       <svg className="fixed top-0 left-0 w-screen h-full pointer-events-none z-[9999]">
         <path
@@ -179,8 +183,8 @@ const About = () => {
       </div>
 
       {/************************************************************************************************************
-      ***********************************************************************************************************
-      *********************************************************************************************************** */}
+       ***********************************************************************************************************
+       *********************************************************************************************************** */}
       {/* buttons home and hire me */}
       <div className="translate-x-5 translate-y-2 flex gap-4">
         <NavLink to="/">
@@ -213,8 +217,8 @@ const About = () => {
       </div>
 
       {/************************************************************************************************************
-      ***********************************************************************************************************
-      *********************************************************************************************************** */}
+       ***********************************************************************************************************
+       *********************************************************************************************************** */}
       {/* Photo and name and passionate */}
       <div className="flex flex-col lg:flex-row gap-2 items-center px-4 md:px-10 lg:translate-x-[250px] translate-x-0 ">
         <div className="relative flex  scale-[60%] hover:scale-[50%] transition-all duration-300">
@@ -250,8 +254,8 @@ const About = () => {
       </div>
 
       {/************************************************************************************************************
-      ***********************************************************************************************************
-      *********************************************************************************************************** */}
+       ***********************************************************************************************************
+       *********************************************************************************************************** */}
       {/* Timeline */}
       <div className="translate-x-[20px] mr-[30px] w-full h-full">
         <VerticalTimeline>
@@ -353,6 +357,25 @@ const About = () => {
                   );
                 })}
               </div>
+            </div>
+            <div className="mx-auto h-[500px] w-[480px] relative border-2 border-indigo-600 text-slate-400 rounded-3xl">
+              <InfiniteMenu items={items} />
+            </div>
+            <div className="mt-4 flex justify-center items-center gap-2 text-indigo-700 text-sm">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
+              </span>
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2v20m10-10H2" />
+              </svg>
+              Drag to move around
             </div>
           </VerticalTimelineElement>
 
